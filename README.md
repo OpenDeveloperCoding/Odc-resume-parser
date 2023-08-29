@@ -6,7 +6,7 @@ This library parse through CVs / Resumes in the word (.doc or .docx) / TXT / PDF
 
 ## Installation
 
-Clone this repository and use It. 
+Clone this repository and use It.. 
 Run `npm i` command In your terminal It will download all the dependency needed.
 
 
