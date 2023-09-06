@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch JSON Object</title>
+</head>
+<body>
+  <h1>PARSED DATA</h1>
+
+  <script>
+    const apiUrl = "http://localhost:5000/get-json";
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", apiUrl);
+    xhr.onload = function() {
+      const response = JSON.parse(xhr.responseText);
+      const name = response.name;
+      const profilesummary = response.summary;
+      const education = response.education;
+      const experince = response.experience;
+
+      let displayField = document.getElementById("name");
+      displayField.innerHTML ='<b>NAME: </b>'+ name;
+      displayField = document.getElementById("profile-summary");
+      displayField.innerHTML =`<b>PROFILE SUMMARY: </b>`+ profilesummary;
+      displayField = document.getElementById("education");
+      displayField.innerHTML =`<b>EDUCATION: </b>`+ education;
+      displayField = document.getElementById("experince");
+      displayField.innerHTML =`<b>EXPERINCE: </b>`+ experince;
+    };
+
+    xhr.send();
+  </script>
+    
+      <div id="name"></div><br>
+      <div id="profile-summary"></div><br>
+      <div id="education"></div><br>
+      <div id="experince"></div>
+
+
+</body>
+</html>

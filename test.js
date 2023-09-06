@@ -65,6 +65,7 @@ app.post("/uploadpdf", upload.single("file"), (req, res) => {  // '/uploadpdf' i
 setTimeout(() => {
   const filePath = path.join(__dirname, `./files/compiled/resume.txt.json`); // Update the path to your file
   res.sendFile(filePath);//this displays the resume.txt.json file on the webpage
+  res.redirect('/display-file');
 },3000);
 
 });
@@ -72,10 +73,14 @@ setTimeout(() => {
 
 
 app.get('/display-file', (req, res) => {    // api to get the parsed data 
-  const filePath = path.join(__dirname, './files/compiled/resume.txt.json'); // Update the path to your file
+  const filePath = path.join(__dirname, './html/display.html'); // Update the path to your file
   res.sendFile(filePath);
 });
 
+app.get('/get-json', (req, res) => {    // api to get the parsed data 
+  const filePath = path.join(__dirname, './files/compiled/resume.txt.json'); // Update the path to your file
+  res.sendFile(filePath);
+});
 
 
 
